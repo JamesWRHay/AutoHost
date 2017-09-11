@@ -30,14 +30,14 @@ class auto(object):
         if live == True:
             self.random(names)
         else: 
-            print("No PrimeRP streams curretly online")
+            print("No streams currently online")
             self.loop(10.0)
             
 
     def socket(self, url):
         try:
             req = urllib.request.Request(url)
-            req.add_header("Client-ID", "45yn5riodzt7fgctjtggmbr8kfyzqm")
+            req.add_header("Client-ID", "")
             req.add_header("Accept", "application/vnd.twitchtv.v5+json")
             resp = urllib.request.urlopen(req)
             data = resp.read()
@@ -54,12 +54,12 @@ class auto(object):
     def host(self, name):
         host = "irc.twitch.tv"
         port = 6667
-        user_name = "primrp"
+        user_name = ""
         print("Hosted: " + name)
 
         s = socket.socket()
         s.connect((host, port))
-        s.send(bytes("PASS oauth:45yn5riodzt7fgctjtggmbr8kfyzqm\r\n", "UTF-8"))
+        s.send(bytes("PASS \r\n", "UTF-8"))
         s.send(bytes("NICK "+ user_name +"\r\n", "UTF-8"))
         s.send(bytes("JOIN #"+ user_name +"\r\n", "UTF-8"))
         #s.send(bytes("PRIVMSG #"+ user_name +" :"+ name +"\r\n", "UTF-8"))
