@@ -8,8 +8,8 @@ class auto(object):
         live = False
         names = []
             
-        data_chl = self.socket("https://api.twitch.tv/kraken/search/streams?query=PrimRP")
-        check = self.socket("http://tmi.twitch.tv/hosts?include_logins=1&host=173636810")
+        data_chl = self.socket("https://api.twitch.tv/kraken/search/streams?query=")
+        check = self.socket("http://tmi.twitch.tv/hosts?include_logins=1&host=")
 
         #Getting the list of names of people that are currently streaming with PrimRP in their title    
         for line in data_chl["streams"]:
