@@ -11,9 +11,9 @@ class auto(object):
         data_chl = self.socket("https://api.twitch.tv/kraken/search/streams?query=")
         check = self.socket("http://tmi.twitch.tv/hosts?include_logins=1&host=")
 
-        #Getting the list of names of people that are currently streaming with PrimRP in their title    
+        #Getting the list of names of people that are currently streaming with  in their title    
         for line in data_chl["streams"]:
-            if "PrimRP" in line["channel"]["status"]:
+            if "" in line["channel"]["status"]:
                 name = line["channel"]["name"]
                 live = True
                 names.append(name)
