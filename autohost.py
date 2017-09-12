@@ -38,7 +38,8 @@ class auto(object):
             self.loop(300.0)
             
     def clr_print(self, msg):
-        os.system("clear")
+        #os.system("clear") Linux
+        os.system("cls") #Windows
         print(msg)
 
     def socket(self, url):
