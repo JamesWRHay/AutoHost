@@ -43,7 +43,8 @@ class auto(object):
     
     #"clr_print" clears the console output before printing a message just for easier reading
     def clr_print(self, msg):
-        os.system("clear")
+        #os.system("clear") #Linux
+        os.system("clr") #Windows
         print(msg)
 
     #Socket method is
