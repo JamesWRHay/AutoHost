@@ -47,7 +47,12 @@ class auto(object):
         os.system("clr") #Windows
         print(msg)
 
-    #Socket method is
+    def log(self):
+        #Add a log that puts the name and the time of when someone is hosted
+        logged = open("Log", "w")
+        logged.write("\n" + name)
+
+    #The socket method requests information from APIs and returns information in a JSON format  
     def socket(self, url, oauth):
         try:
             req = urllib.request.Request(url)
