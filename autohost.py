@@ -38,7 +38,7 @@ class auto(object):
         if live == True:
             self.random(names, query, oauth, host_chnl)
         else: 
-            self.clr_print("No " + query + " streams curretly online")
+            self.clr_print("No " + query + " streams currently online")
             self.loop(300.0)
     
     #"clr_print" clears the console output before printing a message just for easier reading
