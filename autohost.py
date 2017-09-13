@@ -47,10 +47,10 @@ class auto(object):
         os.system("clr") #Windows
         print(msg)
 
-    def log(self):
-        #Add a log that puts the name and the time of when someone is hosted
-        logged = open("Log", "w")
-        logged.write("\n" + name)
+    #A log for debugging purposes
+    def log(self, name):
+        logged = open("Log.txt", "w")
+        logged.write(time.strftime('%a %H:%M:%S') + " Hosted: " + name + "\n")
 
     #The socket method requests information from APIs and returns information in a JSON format  
     def socket(self, url, oauth):
