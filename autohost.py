@@ -38,21 +38,27 @@ class auto(object):
         if live == True:
             self.random(names, query, oauth, host_chnl)
         else: 
-            self.clr_print("No " + query + " streams currently online")
+            self.clr_print("No " + query + " streams curretly online")
             self.loop(300.0)
     
     #"clr_print" clears the console output before printing a message just for easier reading
     def clr_print(self, msg):
-        #os.system("clear") #Linux
-        os.system("clr") #Windows
+        os.system("clear") #Linux
+        #os.system("clr") #Windows
         print(msg)
 
     #A log for debugging purposes
     def log(self, name):
-        logged = open("Log.txt", "w")
-        logged.write(time.strftime('%a %H:%M:%S') + " Hosted: " + name + "\n")
-
-    #The socket method requests information from APIs and returns information in a JSON format  
+        print(os.path.isfile("Log.txt"))
+        if os.path.isfile("Log.txt") == True:
+            with open("Log.txt", "a") as append:
+                append.write(time.strftime("%a %H:%M:%S") + " Hosted: " + name + "\n")
+        else:
+            logged = open("Log.txt", "w")
+            logged.write(time.strftime("%a %H:%M:%S") + " Hosted: " + name + "\n")
+            logged.close()
+        
+    #The socket method requests information from APIs and returns information in a JSON format
     def socket(self, url, oauth):
         try:
             req = urllib.request.Request(url)
@@ -84,6 +90,7 @@ class auto(object):
         s.send(bytes("JOIN #"+ host_chnl.lower() +"\r\n", "UTF-8"))
         s.send(bytes("PRIVMSG #"+ host_chnl.lower() +" :/unhost\r\n", "UTF-8"))
         s.send(bytes("PRIVMSG #"+ host_chnl.lower() +" :/host " + name +"\r\n", "UTF-8"))
+        self.log(name)
         self.loop(1860.0)
 
     #The loop method does what you'd think, it just loops the class after a set amount of time
